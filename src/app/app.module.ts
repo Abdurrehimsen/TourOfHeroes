@@ -2,8 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { environment } from './../environments/environment'
+
 
 import { HeroService } from './hero.service';
+import { AngularFireModule } from 'angularfire2'
+import { AngularFireDatabaseModule } from 'angularfire2/database'
 
 
 import { AppComponent } from './app.component';
@@ -26,7 +30,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [HeroService, MessageService],
   bootstrap: [AppComponent]
